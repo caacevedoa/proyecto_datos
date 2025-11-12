@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Salud</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h1 class="fw-bold">Mi primer sitio web</h1>
+            <p class="text-muted">Ingrese los datos para conocer la predicción</p>
+        </div>
+
+        <form class="row g-3">
+            <!-- Columna 1 -->
+            <div class="col-md-4">
+                <label for="age" class="form-label">Edad</label>
+                <input type="number" id="age" class="form-control" placeholder="Ej. 30">
+            </div>
+
+            <div class="col-md-4">
+                <label for="gender" class="form-label">Género (1=H / 0=M)</label>
+                <input type="number" id="gender" class="form-control" placeholder="Ej. 1">
+            </div>
+
+            <div class="col-md-4">
+                <label for="bmi" class="form-label">Índice de masa corporal (BMI)</label>
+                <input type="number" id="bmi" class="form-control" placeholder="Ej. 22.5">
+            </div>
+
+            <!-- Columna 2 -->
+            <div class="col-md-4">
+                <label for="daily_steps" class="form-label">Pasos diarios</label>
+                <input type="number" id="daily_steps" class="form-control" placeholder="Ej. 8000">
+            </div>
+
+            <div class="col-md-4">
+                <label for="sleep_hours" class="form-label">Horas de sueño</label>
+                <input type="number" id="sleep_hours" class="form-control" placeholder="Ej. 7">
+            </div>
+
+            <div class="col-md-4">
+                <label for="water_intake" class="form-label">Consumo de agua (litros/día)</label>
+                <input type="number" id="water_intake" class="form-control" placeholder="Ej. 2">
+            </div>
+
+            <!-- Columna 3 -->
+            <div class="col-md-4">
+                <label for="calories_consumed" class="form-label">Calorías consumidas</label>
+                <input type="number" id="calories_consumed" class="form-control" placeholder="Ej. 2200">
+            </div>
+
+            <div class="col-md-4">
+                <label for="smoker" class="form-label">¿Fumador?</label>
+                <select id="smoker" class="form-select">
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label for="alcohol" class="form-label">Consumo de alcohol (días/semana)</label>
+                <input type="number" id="alcohol" class="form-control" placeholder="Ej. 2">
+            </div>
+
+            <!-- Columna 4 -->
+            <div class="col-md-4">
+                <label for="resting_hr" class="form-label">Frecuencia cardiaca en reposo</label>
+                <input type="number" id="resting_hr" class="form-control" placeholder="Ej. 70">
+            </div>
+
+            <div class="col-md-4">
+                <label for="systolic_bp" class="form-label">Presión sistólica</label>
+                <input type="number" id="systolic_bp" class="form-control" placeholder="Ej. 120">
+            </div>
+
+            <div class="col-md-4">
+                <label for="diastolic_bp" class="form-label">Presión diastólica</label>
+                <input type="number" id="diastolic_bp" class="form-control" placeholder="Ej. 80">
+            </div>
+
+            <!-- Columna 5 -->
+            <div class="col-md-6">
+                <label for="cholesterol" class="form-label">Colesterol total (mg/dL)</label>
+                <input type="number" id="cholesterol" class="form-control" placeholder="Ej. 180">
+            </div>
+
+            <div class="col-md-6">
+                <label for="family_history" class="form-label">Antecedentes familiares (1=Sí / 0=No)</label>
+                <input type="number" id="family_history" class="form-control" placeholder="Ej. 1">
+            </div>
+
+            <!-- Botón -->
+            <div class="col-12 text-center mt-4">
+                <button type="button" class="btn btn-success px-5" onclick="enviar_datos()">Conocer predicción</button>
+            </div>
+        </form>
+
+        <!-- Resultado -->
+        <div id="resultado" class="text-center mt-4 fs-5 fw-bold"></div>
+    </div>
+
+    <script src="api.js"></script>
+</body>
+</html>
