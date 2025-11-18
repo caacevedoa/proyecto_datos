@@ -1,5 +1,11 @@
 function enviar_datos() {
 
+     // ➤ Mostrar loader antes de enviar datos
+    document.getElementById("loader").style.display = "block";
+
+    // ➤ Ocultar resultados mientras carga
+    document.getElementById("resultado").style.display = "none";
+
     var age = parseInt(document.getElementById("age").value);
     var gender = parseInt(document.getElementById("gender").value);
     var bmi = parseInt(document.getElementById("bmi").value);
@@ -19,6 +25,7 @@ function enviar_datos() {
         age, gender, bmi, daily_steps, sleep_hours, water_intake, calories_consumed,
         smoker, alcohol, resting_hr, systolic_bp, diastolic_bp, cholesterol, family_history
     ];
+    
 
     var endpoint = "http://127.0.0.1:5000/estado_de_salud";
 
@@ -31,6 +38,10 @@ function enviar_datos() {
     })
     .then(response => response.json())
     .then(data => {
+
+        // ➤ Cuando llega la respuesta
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("resultado").style.display = "block";
         document.getElementById("res_knn").innerHTML = "KNN: " + data.KNN;
         document.getElementById("res_red").innerHTML = "Red Neuronal: " + data.Red_Neuronal;
         document.getElementById("res_reg").innerHTML = "Regresión: " + data.Regresion;
@@ -40,4 +51,17 @@ function enviar_datos() {
         alert("Hubo un problema con el servidor.");
     });
 
+}
+
+function toggleMode() {
+
+    document.body.classList.toggle("dark");
+
+    const icon = document.getElementById("modeIcon");
+
+    if (document.body.classList.contains("dark")) {
+        icon.classList.replace("fa-moon", "fa-sun");
+    } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+    }
 }
