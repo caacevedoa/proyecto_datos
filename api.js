@@ -1,5 +1,5 @@
-function enviar_datos(){
-    
+function enviar_datos() {
+
     var age = parseInt(document.getElementById("age").value);
     var gender = parseInt(document.getElementById("gender").value);
     var bmi = parseInt(document.getElementById("bmi").value);
@@ -14,23 +14,30 @@ function enviar_datos(){
     var diastolic_bp = parseInt(document.getElementById("diastolic_bp").value);
     var cholesterol = parseInt(document.getElementById("cholesterol").value);
     var family_history = parseInt(document.getElementById("family_history").value);
-    var resultado = document.getElementById("resultado");
-    const variables = [age, gender, bmi, daily_steps, sleep_hours, water_intake, calories_consumed, smoker, alcohol, resting_hr, systolic_bp, diastolic_bp,cholesterol, family_history]
 
-    var endpoint = "http://127.0.0.1:5000/estado_de_salud"
-    fetch(endpoint,{
-        "method": "post",
+    const variables = [
+        age, gender, bmi, daily_steps, sleep_hours, water_intake, calories_consumed,
+        smoker, alcohol, resting_hr, systolic_bp, diastolic_bp, cholesterol, family_history
+    ];
+
+    var endpoint = "http://127.0.0.1:5000/estado_de_salud";
+
+    fetch(endpoint, {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify({variables})
+        body: JSON.stringify({ variables: variables })
     })
-    .then(function (response){
-        return response.json()})
-
-    .then(function(data){
-        resultado.innerHTML = "La predicción es: " + data.clase;
-        
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("res_knn").innerHTML = "KNN: " + data.KNN;
+        document.getElementById("res_red").innerHTML = "Red Neuronal: " + data.Red_Neuronal;
+        document.getElementById("res_reg").innerHTML = "Regresión: " + data.Regresion;
     })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Hubo un problema con el servidor.");
+    });
 
 }

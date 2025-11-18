@@ -9,8 +9,8 @@
 <body class="bg-light">
     <div class="container mt-5">
         <div class="text-center mb-4">
-            <h1 class="fw-bold">Mi primer sitio web</h1>
-            <p class="text-muted">Ingrese los datos para conocer la predicción</p>
+            <h1 class="fw-bold">Conoce tu pronóstico de salud</h1>
+            <p class="text-muted">Ingresa los datos para conocer la predicción</p>
         </div>
 
         <form class="row g-3">
@@ -21,8 +21,11 @@
             </div>
 
             <div class="col-md-4">
-                <label for="gender" class="form-label">Género (1=H / 0=M)</label>
-                <input type="number" id="gender" class="form-control" placeholder="Ej. 1">
+                <label for="gender" class="form-label">Género</label>
+                <select id="gender" class="form-select">
+                    <option value="0">Hombre</option>
+                    <option value="1">Mujer</option>
+                </select>
             </div>
 
             <div class="col-md-4">
@@ -48,7 +51,7 @@
 
             <!-- Columna 3 -->
             <div class="col-md-4">
-                <label for="calories_consumed" class="form-label">Calorías consumidas</label>
+                <label for="calories_consumed" class="form-label">Calorías consumidas al día</label>
                 <input type="number" id="calories_consumed" class="form-control" placeholder="Ej. 2200">
             </div>
 
@@ -61,8 +64,11 @@
             </div>
 
             <div class="col-md-4">
-                <label for="alcohol" class="form-label">Consumo de alcohol (días/semana)</label>
-                <input type="number" id="alcohol" class="form-control" placeholder="Ej. 2">
+                <label for="alcohol" class="form-label">¿Consumes alcohol?</label>
+                <select id="alcohol" class="form-select">
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
             </div>
 
             <!-- Columna 4 -->
@@ -72,12 +78,12 @@
             </div>
 
             <div class="col-md-4">
-                <label for="systolic_bp" class="form-label">Presión sistólica</label>
+                <label for="systolic_bp" class="form-label">Presión sistólica (Presión máxima punto de contracción del corazón)</label>
                 <input type="number" id="systolic_bp" class="form-control" placeholder="Ej. 120">
             </div>
 
             <div class="col-md-4">
-                <label for="diastolic_bp" class="form-label">Presión diastólica</label>
+                <label for="diastolic_bp" class="form-label">Presión diastólica (Presión mínima punto de relajación del corazón)</label>
                 <input type="number" id="diastolic_bp" class="form-control" placeholder="Ej. 80">
             </div>
 
@@ -87,9 +93,12 @@
                 <input type="number" id="cholesterol" class="form-control" placeholder="Ej. 180">
             </div>
 
-            <div class="col-md-6">
-                <label for="family_history" class="form-label">Antecedentes familiares (1=Sí / 0=No)</label>
-                <input type="number" id="family_history" class="form-control" placeholder="Ej. 1">
+            <div class="col-md-4">
+                <label for="family_history" class="form-label">Antecedentes familiares</label>
+                <select id="family_history" class="form-select">
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
             </div>
 
             <!-- Botón -->
@@ -99,8 +108,13 @@
         </form>
 
         <!-- Resultado -->
-        <div id="resultado" class="text-center mt-4 fs-5 fw-bold"></div>
-    </div>
+        <div id="resultado" class="text-center mt-4">
+            <h4 class="fw-bold">Resultados</h4>
+
+            <p id="res_knn" class="fs-5"></p>
+            <p id="res_red" class="fs-5"></p>
+            <p id="res_reg" class="fs-5"></p>
+        </div>
 
     <script src="api.js"></script>
 </body>
