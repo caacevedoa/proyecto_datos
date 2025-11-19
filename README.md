@@ -1,0 +1,19 @@
+Catalina Acevedo Arias CC 1055751245
+Isabella Arango Castaño CC 1054398467
+Luisa Maria Quintero Franco CC 1002566425
+
+Descripción del proyecto:
+Este proyecto presenta una aplicación web diseñada para predecir el estado de salud de una persona, clasificándola como sana o en riesgo. Para ello, se entrenaron tres modelos de Machine Learning: K-Nearest Neighbors (KNN), Multi-Layer Perceptron (MLP) y Regresión Lineal.
+
+El entrenamiento se realizó utilizando un dataset obtenido de Kaggle que incluye variables relevantes para el bienestar físico, tales como: la edad, el género, índice de masa corporal (BMI), pasos diarios, horas de sueño, agua consumida, calorías, si es fumador, si consume alcohol, frecuencia cardíaca en reposo, presión arterial sistólica, presión arterial diastólica y colesterol. Todas estas variables se le piden al usuario para que los modelos predigan si su estado de salud es bueno o malo (En riesgo o sano).
+
+La aplicación solicita estos datos al usuario a través del frontend y los envía al backend, donde los modelos de predicción procesan la información y devuelven un diagnóstico sobre su estado de salud. Cabe aclarar que la precisión de las predicciones van ligadas al dataset y su naturaleza.
+
+Pasos para el despliegue de la aplicación:
+
+ 1. Requisitos par ejecutar el proyecto: Para ejecutar correctamente la aplicación es necesario contar con Python    3.10 o una versión superior, ya que el backend está desarrollado con Flask y requiere este entorno. También se debe tener instalado pip, el gestor de paquetes de Python, para permitir la instalación de todas las dependencias, adicionalmente, es necesario disponer de Git para clonar el repositorio desde GitHub y gestionar el proyecto, así como un navegador web actualizado, para acceder e interactuar con el frontend.
+ 2. Clonar el repositorio: git clone en la terminal y luego pegar el endpoint del reporsitorio.
+ 3. Instalar las dependencias: en la terminal escriba: pip install -r requirements.txt, estas dependencias incluyen Flask y las librerías de Machine Learning usadas para cargar y ejecutar los modelos.
+ 4. Inicializar el backend: ubicarse en el archivo app_salud.py, en este archivo se visualizará la API de flask donde se encuentran los modelos de machine learning a utilizar. Para inicializarlo escriba en la terminal: flask --app app_salud run, después de esto aparece un endpoint el cual indica que la página ya está inicializada. 
+ 5. Acceder al frontend: el frontend está compuesto por 2 archivos que son api.js e index.html. en el primero de ellos se encuentran todas las variables del formulario, las cuales se convierten en números, las envía al servidor mediante un POST, muestra el loader mientras procesa los datos y, al recibir la respuesta, muestra los resultados en la  pantalla. Además, permite activar o desactivar el modo oscuro cambiando la apariencia del sitio. El segundo de ellos construye una interfaz visual donde el usuario ingresa las variables que se le piden, aplica estilos con CSS, muestra un loader mientras se procesan los datos y presenta los resultados enviados por el backend. Además, incluye un botón para cambiar entre modo claro y oscuro, integra Bootstrap, Google Fonts y FontAwesome, y carga un archivo api.js que envía las variables al servidor para obtener la predicción.
+ 6. Probar el sitio web: Para dirigirse al sitio web se tienen dos opciones, la primera es en el archivo api.js en la variable endpoint copiar y pegarlo en el navegador, y la segunda es a partir de la carpeta creada del proyecto, alli se debe abrir el archivo llamado "index.html". Ya abierto el sitio ingrese los datos y prediga su estado de salud.
